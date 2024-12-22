@@ -13,6 +13,7 @@ import AuthProvider from "./Firebase/AuthProvider.jsx";
 import Services from './Page/Services/Services';
 import AddService from './Page/AddService/AddService';
 import ManageService from './Page/ManageService/ManageService';
+import PrivetRoute from './Components/Loading/PrivetRoute/PrivetRoute.jsx';
 
 
 const router = createBrowserRouter([
@@ -38,11 +39,11 @@ const router = createBrowserRouter([
       },
       {
         path:'/addservice',
-        element:<AddService/>
+        element:<PrivetRoute> <AddService/> </PrivetRoute> 
       },
       {
         path:'/manageservice',
-        element:<ManageService/>
+        element: <PrivetRoute><ManageService/> </PrivetRoute>
       },
     ]
   },

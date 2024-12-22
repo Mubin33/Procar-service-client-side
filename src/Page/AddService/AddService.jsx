@@ -1,12 +1,17 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../Firebase/AuthProvider';
 import Swal from 'sweetalert2';
+import axios from 'axios';
 
 const AddService = () => {
-    const {userInformation} = useContext(AuthContext)
+    const {userInformation} = useContext(AuthContext) 
 
     const [wrongDescription, setWrongDescription] = useState(false) 
     const [wrongPhoto, setWrongPhoto] = useState(false) 
+
+    let hr_email = userInformation?.email
+    let hr_name = userInformation?.displayName
+    let hr_photo = userInformation?.photoURL
 
     const handleForm=(e)=>{
         e.preventDefault()
@@ -15,8 +20,16 @@ const AddService = () => {
          const photo = form.photo.value
          const name = form.name.value
          const city = form.city.value
+         const price = form.price.value
          const country = form.country.value
          const description = form.description.value
+
+         let info = {photo, name, city, country, price, description, hr_email, hr_name, hr_photo}
+ 
+         axios.post('http://localhost:5000/service', info)
+        .then(res => {
+        console.log(res.data);
+        })
 
 
 
@@ -61,7 +74,7 @@ const AddService = () => {
           <label className="label">
             <span className="label-text">Service Photo{wrongPhoto && <span className="text-xs text-red-600">*Only photo URL*</span>}</span> 
           </label>
-          <input type="text" placeholder="photo URL" name='photo' className="input input-bordered"  />
+          <input type="url" placeholder="photo URL" name='photo' className="input input-bordered"  />
         </div>
         <div className="form-control">
           <label className="label">
