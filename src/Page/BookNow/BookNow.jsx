@@ -3,6 +3,8 @@ import { useLoaderData } from "react-router-dom";
 import { FaLocationDot } from "react-icons/fa6";
 import { TbCurrencyTaka } from "react-icons/tb";
 import { AuthContext } from "../../Firebase/AuthProvider";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const BookNow = () => {
   const data = useLoaderData([]);
@@ -20,6 +22,78 @@ const BookNow = () => {
     country,
     city,
   } = data;
+
+
+const handleBooked=(e)=>{
+    e.preventDefault()
+
+    let form = e.target
+    let date = form.date.value
+    let message = form.message.value
+    let bookedUserName =displayName
+    let bookedUserPhoto = photoURL
+    let bookedUserEmail = email
+    let serviceId = _id
+
+
+
+    let info = {
+        serviceId,
+        price,
+        photo,
+        name,
+        hr_photo,
+        hr_name,
+        hr_email,
+        description,
+        country,
+        city,
+        date,
+        message,
+        bookedUserName,
+        bookedUserPhoto,
+        bookedUserEmail
+    }
+ 
+
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, Confirm!"
+      }).then((result) => {
+        if (result.isConfirmed) {
+            axios.post('http://localhost:5000/booked', info)
+        .then(res=> {
+            console.log(res.data)
+        })
+        .catch(error=>{ 
+            Swal.fire({
+                title: "Opps!!",
+                text: "Something want wrong",
+                icon: "error"
+              });
+        })
+          Swal.fire({
+            title: "Booked!",
+            text: "Your request is pending.",
+            icon: "success"
+          });
+        }
+      });
+
+
+
+
+
+
+        
+
+}
+
   return (
     <div>
       <div className=" hero bg-base-200 min-h-[700px]">
@@ -48,6 +122,7 @@ const BookNow = () => {
               <p className="text-sm text-end font-bold ">Name: {displayName}</p> 
               <p className="text-sm text-end font-semibold">Email: {email}</p> 
             {/*  */}
+            <form onSubmit={handleBooked}> 
               <div className="form-control my-5">
           <label className="label">
             <span className="label-text ">Service Taking Date</span>
@@ -61,6 +136,7 @@ const BookNow = () => {
           <input type="text" placeholder="enter anything" name="message" className="input input-bordered" required />
         </div>
         <input type="submit" className="btn bg-green-500 w-full mt-4 text-white"/>
+            </form>
         {/*  */}
           </div>
         </div>
