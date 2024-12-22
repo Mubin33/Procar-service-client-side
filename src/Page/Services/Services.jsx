@@ -11,7 +11,7 @@ const Services = () => {
     },[])
 // console.log(allService)
     return (
-        <div>
+        <div className='mt-28 px-16'>
             {
                 allService.map(item => <ServiceCard key={item._id} service={item}/>)
             }

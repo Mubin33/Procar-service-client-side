@@ -14,6 +14,7 @@ import Services from './Page/Services/Services';
 import AddService from './Page/AddService/AddService';
 import ManageService from './Page/ManageService/ManageService';
 import PrivetRoute from './Components/Loading/PrivetRoute/PrivetRoute.jsx';
+import Details from './Page/Details/Details.jsx';
 
 
 const router = createBrowserRouter([
@@ -44,6 +45,11 @@ const router = createBrowserRouter([
       {
         path:'/manageservice',
         element: <PrivetRoute><ManageService/> </PrivetRoute>
+      },
+      {
+        path:'/details/:id',
+        element: <PrivetRoute><Details/> </PrivetRoute>,
+        loader:({params}) => fetch(`http://localhost:5000/service/${params.id}`)
       },
     ]
   },
