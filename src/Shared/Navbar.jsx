@@ -2,6 +2,8 @@ import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Firebase/AuthProvider";
+import { FaAngleDoubleDown } from "react-icons/fa";
+
 
 const Navbar = () => {
   let { userInformation, signoutUser } = useContext(AuthContext);
@@ -74,22 +76,22 @@ const Navbar = () => {
         </NavLink>
       </li>
       {/*  */}
-      <div className="dropdown dropdown-right">
+      <div className="dropdown dropdown-bottom  ">
         <div
           tabIndex={0}
           role="button"
-          className="py-3 px-4 font-semibold rounded-lg text-green-600 "
+          className="py-3 px-4 flex items-center gap-2 font-semibold rounded-lg text-green-600 "
           onClick={toggleDropdown}
           onKeyPress={(e) => {
             if (e.key === "Enter") toggleDropdown();
           }}
         >
-          Dashboard
+          Dashboard <FaAngleDoubleDown />
         </div>
         {isOpen && (
           <ul
             tabIndex={0}
-            className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
+            className="dropdown-content ml-10 menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
           >
             <li>
               <NavLink

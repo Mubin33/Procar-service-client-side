@@ -15,6 +15,7 @@ import AddService from './Page/AddService/AddService';
 import ManageService from './Page/ManageService/ManageService';
 import PrivetRoute from './Components/Loading/PrivetRoute/PrivetRoute.jsx';
 import Details from './Page/Details/Details.jsx';
+import BookNow from './Page/BookNow/BookNow.jsx';
 
 
 const router = createBrowserRouter([
@@ -49,6 +50,11 @@ const router = createBrowserRouter([
       {
         path:'/details/:id',
         element: <PrivetRoute><Details/> </PrivetRoute>,
+        loader:({params}) => fetch(`http://localhost:5000/service/${params.id}`)
+      },
+      {
+        path:'/booknow/:id',
+        element: <PrivetRoute><BookNow/> </PrivetRoute>,
         loader:({params}) => fetch(`http://localhost:5000/service/${params.id}`)
       },
     ]

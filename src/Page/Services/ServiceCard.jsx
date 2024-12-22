@@ -19,11 +19,11 @@ const ServiceCard = ({ service }) => {
     city,
   } = service;
   return (
-    <div className="flex p-5 rounded-2xl bg-base-200  mt-8  shadow-xl ">
-      <div className="h-48 w-56 mr-6">
+    <div className="md:flex md:p-5 rounded-2xl bg-base-200 p-2  mt-8  shadow-xl ">
+      <div className="h-48 w-full md:w-56 mr-6">
         <img className="h-full rounded-md min-w-56" src={photo} alt="" />
       </div>
-      <div className="pl-6 border-l-2 border-gray-400"> 
+      <div className="pl-6 mt-3 md:mt0 md:border-l-2 border-gray-400"> 
         <h1 className="text-xl font-bold">{name}</h1> 
         <div className="flex items-center mt-2 space-x-2">
           <img className="h-6 w-6 rounded-full " src={hr_photo} alt="" />
