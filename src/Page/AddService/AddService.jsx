@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const AddService = () => {
     const {userInformation} = useContext(AuthContext) 
-
+    const [bit, setBit] = useState(0)
     const [wrongDescription, setWrongDescription] = useState(false) 
     const [wrongPhoto, setWrongPhoto] = useState(false) 
 
@@ -24,10 +24,15 @@ const AddService = () => {
          const country = form.country.value
          const description = form.description.value
 
-         let info = {photo, name, city, country, price, description, hr_email, hr_name, hr_photo}
+         let info = {photo, bid, name, city, country, price, description, hr_email, hr_name, hr_photo}
  
          axios.post('http://localhost:5000/service', info)
         .then(res => {
+          Swal.fire({
+            icon: "success",
+            title: "WOW.....",
+            text: "Successfully service added", 
+          });
         console.log(res.data);
         })
 

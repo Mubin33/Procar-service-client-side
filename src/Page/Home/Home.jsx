@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import Slider from "../../Components/Slider/Slider";
+import MainRun from "../../Components/RuningCard/MainRun";
 
 const Home = () => {
   const [theme, setTheme] = useState(
@@ -49,6 +51,8 @@ const Home = () => {
           {theme.charAt(0).toUpperCase() + theme.slice(1)} Theme
         </h1>
       </div>
+      <Slider/>
+      <MainRun/>
     </div>
   );
 };

@@ -6,9 +6,8 @@ import { useQuery } from '@tanstack/react-query';
 import Loading from './../../Components/Loading/Loading';
 
 const Services = () => {
-    const [search, setSearch] = useState(''); // Search state
-
-    // Debounced search handler
+    const [search, setSearch] = useState('');  
+ 
     const handleSearch = useCallback(
         debounce((query) => {
             setSearch(query);
