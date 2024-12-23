@@ -1,11 +1,12 @@
 import React from "react";
 import { FaLocationDot } from "react-icons/fa6";
 import { TbCurrencyTaka } from "react-icons/tb";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { MdDeleteForever } from "react-icons/md";
+import { FaRegEdit } from "react-icons/fa"; 
 
-
-
-const ServiceCard = ({ service }) => {
+const ServiceCard = ({ service, handleDelete }) => {
+  let location = useLocation();
   let {
     _id,
     price,
@@ -18,28 +19,50 @@ const ServiceCard = ({ service }) => {
     country,
     city,
   } = service;
+
+
+  
   return (
-    <div className="md:flex md:p-5 rounded-2xl bg-base-200 p-2  mt-8  shadow-xl ">
+    <div className="md:flex md:p-5 rounded-2xl bg-base-200 p-2  mt-8 items-center shadow-xl ">
       <div className="h-48 w-full md:w-56 mr-6">
         <img className="h-full rounded-md min-w-56" src={photo} alt="" />
       </div>
-      <div className="pl-6 mt-3 md:mt0 md:border-l-2 border-gray-400"> 
-        <h1 className="text-xl font-bold">{name}</h1> 
+      <div className="pl-6 mt-3 md:mt0 md:border-l-2 flex-1 border-gray-400">
+        <h1 className="text-2xl font-bold">{name}</h1>
         <div className="flex items-center mt-2 space-x-2">
           <img className="h-6 w-6 rounded-full " src={hr_photo} alt="" />
           <p className="text-sm font-bold ">{hr_name}</p>
         </div>
-        <p className="text-xs mt-2 flex items-center gap-1"><FaLocationDot />  {city}, {country}</p>
+        <p className="text-xs mt-2 flex items-center gap-1">
+          <FaLocationDot /> {city}, {country}
+        </p>
         <p className="text-sm   my-2">
           {description.length > 100
             ? `${description.slice(0, 100)}...`
             : description}
         </p>
-        <p className="text-sm font-semibold flex items-center gap-1"><TbCurrencyTaka size={14}/>  {price} BDT</p>
+        <p className="text-sm font-semibold flex items-center gap-1">
+          <TbCurrencyTaka size={14} /> {price} BDT
+        </p>
         <Link to={`/details/${_id}`}>
-        <button className="btn btn-sm mt-2 text-sm bg-green-400 text-white">Details</button>
+          <button className="btn btn-sm mt-2 text-sm bg-green-400 text-white">
+            Details
+          </button>
         </Link>
       </div>
+      {location.pathname === "/manageservice" ? (
+        <div className="mt-5 md:mt-0 flex gap-3 md:space-x-4 pr-5">
+          <button onClick={()=>handleDelete(_id)} className="btn btn-outline rounded-full">
+            {" "}
+            <MdDeleteForever size={18} />
+          </button>
+          <button className="btn btn-outline rounded-full">
+            <FaRegEdit size={18} />
+          </button>
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

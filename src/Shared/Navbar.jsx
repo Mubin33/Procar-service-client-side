@@ -4,7 +4,6 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../Firebase/AuthProvider";
 import { FaAngleDoubleDown } from "react-icons/fa";
 
-
 const Navbar = () => {
   let { userInformation, signoutUser } = useContext(AuthContext);
   console.log(userInformation);
@@ -42,8 +41,7 @@ const Navbar = () => {
     });
   };
 
-
-
+  let userName = userInformation?.email.charAt(0).toUpperCase();
 
   const navServices = (
     <>
@@ -196,18 +194,35 @@ const Navbar = () => {
             </span> */}
 
               <div className="dropdown z-10 dropdown-end">
+                {/*  */}
                 <div
                   tabIndex={0}
                   role="button"
                   className="btn btn-ghost btn-circle avatar"
                 >
                   <div className="w-9 md:w-11 md:p-1 bg-white rounded-full">
-                    <img alt="profile image" src={userInformation?.photoURL} />
+                    {userInformation?.photoURL === null ? (
+                      <div>
+                        <p classname=" w-full h-full bg-red-500 text-3xl ">
+                          {userName}
+                        </p>
+                      </div>
+                    ) : (
+                      <>
+                        <img
+                          alt={userName}
+                          className="text-3xl"
+                          src={userInformation?.photoURL}
+                        />
+                      </>
+                    )}
+                    {/* <img alt="profile image" src={userInformation?.photoURL} /> */}
                     <span className="absolute z-10 left-1/2 transform -translate-x-2/3 mt-2 w-auto px-2 py-1 bg-black text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity">
                       {userInformation?.displayName || "User"}
                     </span>
                   </div>
                 </div>
+                {/*  */}
                 <ul
                   tabIndex={0}
                   className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow"

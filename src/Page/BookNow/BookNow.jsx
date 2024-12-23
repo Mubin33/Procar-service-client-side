@@ -97,11 +97,11 @@ const handleBooked=(e)=>{
   return (
     <div>
       <div className=" hero bg-base-200 min-h-[700px]">
-        <div className="md:grid grid-cols-2 card bg-base-100 lg:w-10/12 h-[1610px] md:h-[620px] shrink-0 p-6 shadow-2xl">
+        <div className="md:grid grid-cols-2 card bg-base-100 lg:w-10/12 h-[1210px] md:h-[620px] shrink-0 p-6 shadow-2xl">
           <div className="md:pl-4 md:pr-9 md:border-r-4 border-green-600 ">
             <img className="h-80 rounded-md w-full" src={photo} alt="" />
             <h1 className="text-3xl my-4 text-center font-bold">{name}</h1>
-            <p className=" font-semibold text-center   my-4">{description}</p>
+            <p className=" font-semibold text-center   my-2">{description}</p>
             <p className="text-xs mt-2 flex items-center gap-1">
               <FaLocationDot /> {city}, {country}
             </p>

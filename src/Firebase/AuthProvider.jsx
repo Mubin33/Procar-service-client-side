@@ -9,6 +9,7 @@ import {
   } from "firebase/auth";
   import React, { createContext, useEffect, useState } from "react";
 import auth from "./Firebase";
+import axios from "axios";
 
   
   export const AuthContext = createContext(null);
@@ -44,7 +45,17 @@ import auth from "./Firebase";
     useEffect(() => {
       const unsubscribe = onAuthStateChanged(auth, (user) => {
         setUserInformation(user);
-        setLoading(false);
+        if(user?.email){
+          const nowUser={email:user.email}
+          axios.post('http://localhost:5000/jwt', nowUser,{withCredentials:true})
+          setLoading(false);
+        }else{
+          axios.post('http://localhost:5000/logout', {},{withCredentials:true})
+          .then(res=> {
+              console.log("user logout and kill the token",res.data)
+              setLoading(false);
+          })
+      }
       });
   
       return () => {
