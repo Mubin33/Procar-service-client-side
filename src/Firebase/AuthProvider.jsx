@@ -18,6 +18,7 @@ import axios from "axios";
     let [userInformation, setUserInformation] = useState(null);
     let [afterDelete, setAfterDelete] = useState([]);
     let [loading, setLoading] = useState(true);
+
   
     const registerUser = async (email, password, displayName, photoURL) => {
       let signup = await createUserWithEmailAndPassword(auth, email, password);
@@ -73,7 +74,7 @@ import axios from "axios";
       signoutUser,
       afterDelete,
       setAfterDelete,
-      SignInGoogle,
+      SignInGoogle, 
     };
     return <AuthContext.Provider value={obj}>{children}</AuthContext.Provider>;
   };

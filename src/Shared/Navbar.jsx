@@ -133,6 +133,20 @@ const Navbar = () => {
                 Booked Services
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                className={({ isActive, isPending }) =>
+                  isPending
+                    ? "pending"
+                    : isActive
+                    ? "bg-green-400 py-3 px-4 font-semibold rounded-lg text-white"
+                    : "py-3 px-4 font-semibold rounded-lg text-green-600"
+                }
+                to="/bookedrequest"
+              >
+                Booked Request
+              </NavLink>
+            </li>
           </ul>
         )}
       </div>

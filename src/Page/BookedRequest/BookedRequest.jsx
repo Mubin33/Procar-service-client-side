@@ -6,13 +6,13 @@ import ServiceCard from '../Services/ServiceCard';
 import { AuthContext } from '../../Firebase/AuthProvider';
 import UseAxiosSecure from '../../Firebase/UseAxiosSecure';
 
-const BookedServices = () => {
+const BookedRequest = () => {
     const axiosSecure = UseAxiosSecure()
     let {userInformation} = useContext(AuthContext)
     const { data: response, isLoading, isError, error } = useQuery({
         queryKey: ['allService'],
         queryFn: async () => {
-            const res = await axiosSecure.get(`http://localhost:5000/booked?email=${userInformation?.email}&type=bookedUser`,{
+            const res = await axiosSecure.get(`http://localhost:5000/booked?email=${userInformation?.email}&type=hr`,{
                 withCredentials:true
             });
             return res.data; // Extract data here
@@ -37,5 +37,4 @@ const BookedServices = () => {
         </div>
     );
 };
-
-export default BookedServices;
+export default BookedRequest;

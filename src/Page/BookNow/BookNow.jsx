@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { FaLocationDot } from "react-icons/fa6";
 import { TbCurrencyTaka } from "react-icons/tb";
 import { AuthContext } from "../../Firebase/AuthProvider";
@@ -8,7 +8,8 @@ import Swal from "sweetalert2";
 
 const BookNow = () => {
   const data = useLoaderData([]);
-  let {userInformation} = useContext(AuthContext)
+  let navigate = useNavigate()
+  let {userInformation  } = useContext(AuthContext)
   let {email, photoURL, displayName} = userInformation
   let {
     _id,
@@ -22,6 +23,9 @@ const BookNow = () => {
     country,
     city,
   } = data;
+
+ 
+  let status = "pending"
 
 
 const handleBooked=(e)=>{
@@ -38,6 +42,7 @@ const handleBooked=(e)=>{
 
 
     let info = {
+        status,
         serviceId,
         price,
         photo,
@@ -69,11 +74,12 @@ const handleBooked=(e)=>{
             axios.post('http://localhost:5000/booked', info)
         .then(res=> {
             console.log(res.data)
+            navigate('/bookedservice')
         })
         .catch(error=>{ 
             Swal.fire({
                 title: "Opps!!",
-                text: "Something want wrong",
+                text: "You already booked this service",
                 icon: "error"
               });
         })

@@ -5,10 +5,11 @@ import ServiceCard from '../Services/ServiceCard';
 import Swal from 'sweetalert2';
 import Loading from '../../Components/Loading/Loading';
 import { useQuery } from '@tanstack/react-query';
+import { useNavigate } from 'react-router-dom';
 
 const ManageService = () => {
     let {userInformation} = useContext(AuthContext) 
-
+  const navigate = useNavigate()
 
 
     const { data: postedService, isLoading, isError, error } = useQuery({
@@ -54,9 +55,7 @@ const ManageService = () => {
           if (result.isConfirmed) {
               axios.delete(`http://localhost:5000/service/${id}`)
           .then(res=> {
-            if (res.status === 200) { 
-                setPostedService(postedService.filter(service => service._id !== id));
-            }
+            navigate('/')
           })
           .catch(error=>{ 
               Swal.fire({
