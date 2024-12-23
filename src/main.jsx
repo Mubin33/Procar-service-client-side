@@ -20,6 +20,7 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
+import BookedServices from './Page/BookedServices/BookedServices.jsx';
 
 
 
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
       {
         path:'/manageservice',
         element: <PrivetRoute><ManageService/> </PrivetRoute>
+      },
+      {
+        path:'/bookedservice',
+        element: <PrivetRoute><BookedServices/> </PrivetRoute>
       },
       {
         path:'/details/:id',

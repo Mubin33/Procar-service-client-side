@@ -85,14 +85,13 @@ const handleBooked=(e)=>{
         }
       });
 
-
-
-
-
-
-        
+ 
 
 }
+
+
+let providerUserName = hr_email.charAt(0).toUpperCase();
+let bookedUserName = email.charAt(0).toUpperCase();
 
   return (
     <div>
@@ -111,13 +110,34 @@ const handleBooked=(e)=>{
           </div>
           <div className="md:pl-6  ">
             <h1 className="text-xl underline font-bold">Provider Information:-</h1>
-              <img className="h-9 w-9 rounded-md my-2" src={hr_photo} alt="" /> 
+            { !/^https?:\/\/.+\..+/.test(hr_photo) ? (
+                      <div>
+                        <p style={{ fontSize: '2rem', marginTop:'4px', borderRadius:"50%", width:'40px',display:'flex', justifyContent:"center", alignItems:"center", height:'40px', backgroundColor:"skyblue", fontWeight: 'bold' }} classname=" w-full h-full">
+                          {providerUserName}
+                        </p>
+                      </div>
+                    ) : (
+                      <>
+                        <img className="h-9 w-9 rounded-md my-2" src={hr_photo} alt="" /> 
+                      </>
+                    )}
+              
               <p className="text-sm font-bold ">Name: {hr_name}</p> 
               <p className="text-sm font-semibold">Email: {hr_email}</p> 
               {/*  */}
             <h1 className="text-xl text-end mt-10 underline font-bold">Your Information:-</h1>
               <div className="flex justify-end">
-            <img className="h-9 w-9 rounded-md my-2" src={photoURL} alt="" /> 
+              { !/^https?:\/\/.+\..+/.test(photoURL) ? (
+                      <div>
+                        <p style={{fontSize:'2rem', marginTop:'4px', borderRadius:"50%", width:'40px',display:'flex', justifyContent:"center", alignItems:"center", height:'40px', backgroundColor:"skyblue", fontWeight: 'bold' }} classname=" w-full h-full">
+                          {bookedUserName}
+                        </p>
+                      </div>
+                    ) : (
+                      <>
+                        <img className="h-9 w-9 rounded-md my-2" src={photoURL} alt="" />
+                      </>
+                    )} 
               </div>
               <p className="text-sm text-end font-bold ">Name: {displayName}</p> 
               <p className="text-sm text-end font-semibold">Email: {email}</p> 

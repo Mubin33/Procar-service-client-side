@@ -23,7 +23,7 @@ const ServiceCard = ({ service, handleDelete }) => {
 
   
   return (
-    <div className="md:flex md:p-5 rounded-2xl bg-base-200 p-2  mt-8 items-center shadow-xl ">
+    <div className="md:flex md:p-5 rounded-2xl bg-base-200 p-2  mt-14 items-center shadow-xl shadow-blue-200">
       <div className="h-48 w-full md:w-56 mr-6">
         <img className="h-full rounded-md min-w-56" src={photo} alt="" />
       </div>
@@ -44,11 +44,14 @@ const ServiceCard = ({ service, handleDelete }) => {
         <p className="text-sm font-semibold flex items-center gap-1">
           <TbCurrencyTaka size={14} /> {price} BDT
         </p>
-        <Link to={`/details/${_id}`}>
+        {
+          location.pathname === '/bookedservice' ? "" : <Link to={`/details/${_id}`}>
           <button className="btn btn-sm mt-2 text-sm bg-green-400 text-white">
             Details
           </button>
-        </Link>
+        </Link> 
+        }
+        
       </div>
       {location.pathname === "/manageservice" ? (
         <div className="mt-5 md:mt-0 flex gap-3 md:space-x-4 pr-5">

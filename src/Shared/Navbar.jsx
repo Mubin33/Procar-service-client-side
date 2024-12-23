@@ -119,6 +119,20 @@ const Navbar = () => {
                 Manage Services
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                className={({ isActive, isPending }) =>
+                  isPending
+                    ? "pending"
+                    : isActive
+                    ? "bg-green-400 py-3 px-4 font-semibold rounded-lg text-white"
+                    : "py-3 px-4 font-semibold rounded-lg text-green-600"
+                }
+                to="/bookedservice"
+              >
+                Booked Services
+              </NavLink>
+            </li>
           </ul>
         )}
       </div>
@@ -201,17 +215,17 @@ const Navbar = () => {
                   className="btn btn-ghost btn-circle avatar"
                 >
                   <div className="w-9 md:w-11 md:p-1 bg-white rounded-full">
-                    {userInformation?.photoURL === null ? (
+                    { !/^https?:\/\/.+\..+/.test(userInformation?.photoURL) ? (
                       <div>
-                        <p classname=" w-full h-full bg-red-500 text-3xl ">
+                        <p style={{ fontSize: '2rem',  borderRadius:"50%", width:'40px',display:'flex', justifyContent:"center", alignItems:"center", height:'40px', backgroundColor:"skyblue", fontWeight: 'bold' }} classname=" w-full h-full">
                           {userName}
                         </p>
                       </div>
                     ) : (
                       <>
                         <img
-                          alt={userName}
-                          className="text-3xl"
+                          alt=""
+                          className="text-xl"
                           src={userInformation?.photoURL}
                         />
                       </>
