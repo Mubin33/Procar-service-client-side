@@ -4,13 +4,17 @@ import React, { useContext } from 'react';
 import Loading from '../../Components/Loading/Loading';
 import ServiceCard from '../Services/ServiceCard';
 import { AuthContext } from '../../Firebase/AuthProvider';
+import UseAxiosSecure from '../../Firebase/UseAxiosSecure';
 
 const BookedServices = () => {
+    const axiosSecure = UseAxiosSecure()
     let {userInformation} = useContext(AuthContext)
     const { data: response, isLoading, isError, error } = useQuery({
         queryKey: ['allService'],
         queryFn: async () => {
-            const res = await axios.get(`http://localhost:5000/booked?email=${userInformation?.email}`);
+            const res = await axiosSecure.get(`http://localhost:5000/booked?email=${userInformation?.email}`,{
+                withCredentials:true
+            });
             return res.data; // Extract data here
         }
     });

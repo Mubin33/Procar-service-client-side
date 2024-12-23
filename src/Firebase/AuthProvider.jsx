@@ -63,8 +63,7 @@ import axios from "axios";
       };
     }, []);
   
-    let obj = {
-      name: "bd",
+    let obj = { 
       registerUser,
       loginUser,
       userInformation,

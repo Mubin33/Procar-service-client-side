@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useContext, useEffect } from "react";
-import AuthContext from "../context/AuthContext/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "./AuthProvider";
 
 const axiosInstance = axios.create({
   baseURL: "http://localhost:5000",
@@ -9,7 +9,7 @@ const axiosInstance = axios.create({
 });
 
 const UseAxiosSecure = () => {
-  let { signOutUser } = useContext(AuthContext);
+  let { signoutUser } = useContext(AuthContext);
   let navigate = useNavigate();
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const UseAxiosSecure = () => {
         console.log("error catch in interceptors", error);
         if (error.status === 401 || error.status === 403) {
           // logout
-          signOutUser()
+          signoutUser()
             .then((result) => {
               console.log(result);
               navigate("/login");
