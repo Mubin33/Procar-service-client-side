@@ -142,6 +142,11 @@ const ServiceCard = ({ service, handleDelete }) => {
         ) : (
           ""
         )}
+        {
+        location.pathname === "/" ? <div>
+          <p className="mt-1 text-xs text-red-500 ">Total booked: {service?.bid}</p>
+        </div> :""
+      }
       </div>
       {location.pathname === "/manageservice" ? (
         <div className="mt-5 md:mt-0 flex gap-3 md:space-x-4 pr-5">
@@ -161,6 +166,7 @@ const ServiceCard = ({ service, handleDelete }) => {
       ) : (
         ""
       )}
+      
     </div>
   );
 };

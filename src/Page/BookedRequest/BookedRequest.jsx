@@ -34,9 +34,9 @@ const BookedRequest = () => {
     return (
         <>
         <Helmet>
-        <title>Booked request || MNS-service</title>
+        <title>Service-To-Do || MNS-service</title>
         </Helmet>
-        <Title title={'Booked request'} subtitle={'Your booked requests are organized and accessible in one convenient place. With real-time updates and clear communication, you can stay informed about the progress of your requests at every stage. Whether it’s scheduling, status updates, or modifications, we’ve designed this platform to keep you in control and ensure a seamless experience.'}/>
+        <Title title={'Service-To-Do'} subtitle={'Your booked requests are organized and accessible in one convenient place. With real-time updates and clear communication, you can stay informed about the progress of your requests at every stage. Whether it’s scheduling, status updates, or modifications, we’ve designed this platform to keep you in control and ensure a seamless experience.'}/>
         <div className='lg:grid grid-cols-2 gap-x-16 px-10'>
             {
                 response?.map(item => <ServiceCard key={item._id} service={item}/>)

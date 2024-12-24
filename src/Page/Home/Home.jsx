@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import Slider from "../../Components/Slider/Slider";
 import MainRun from "../../Components/RuningCard/MainRun";
 import { Helmet } from "react-helmet-async";
+import TopService from './../../Components/TopService/TopService';
+import Banner from "../../Components/Banner/Banner";
 
 const Home = () => {
   const [theme, setTheme] = useState(
@@ -56,6 +58,10 @@ const Home = () => {
         </h1>
       </div>
       <Slider/>
+      <TopService/>
+      <div className="mt-28">
+        <Banner/>
+      </div>
       <MainRun/>
     </div>
   );
