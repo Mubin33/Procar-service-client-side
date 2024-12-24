@@ -131,7 +131,7 @@ const AddService = () => {
         </div>
         {/*  */}
         <div className="form-control mt-6">
-          <button className="btn bg-green-600 text-white">Login</button>
+          <button className="btn bg-green-600 text-white">Add Service</button>
         </div>
       </form>
     </div>

@@ -22,6 +22,7 @@ import {
 } from '@tanstack/react-query'
 import BookedServices from './Page/BookedServices/BookedServices.jsx';
 import BookedRequest from './Page/BookedRequest/BookedRequest.jsx';
+import UpdateService from './Page/UpdateService/UpdateService.jsx';
 
 
 
@@ -74,6 +75,12 @@ const router = createBrowserRouter([
         path:'/booknow/:id',
         element: <PrivetRoute><BookNow/> </PrivetRoute>,
         loader:({params}) => fetch(`http://localhost:5000/service/${params.id}`)
+      },
+      {
+        path: "/update/:id",
+        element:<PrivetRoute> <UpdateService /> </PrivetRoute>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/service/${params.id}`),
       },
     ]
   },
