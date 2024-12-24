@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Slider from "../../Components/Slider/Slider";
 import MainRun from "../../Components/RuningCard/MainRun";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   const [theme, setTheme] = useState(
@@ -19,6 +20,9 @@ const Home = () => {
   }, [theme]);
   return (
     <div>
+      <Helmet>
+      <title>Add Movie || MNS-service</title>
+      </Helmet>
       <div className="flex justify-end py-2 items-center pr-5">
         {/*  */}
         <label className="swap swap-rotate">

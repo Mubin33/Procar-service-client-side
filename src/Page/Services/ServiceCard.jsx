@@ -26,7 +26,7 @@ const ServiceCard = ({ service, handleDelete }) => {
       return console.log("sorry");
     }
     try {
-      await axios.patch(`http://localhost:5000/bid-status/${id}`, {
+      await axios.patch(`https://mubins-server-project.vercel.app/bid-status/${id}`, {
         status: updateStatus,
       });
     } catch (error) {

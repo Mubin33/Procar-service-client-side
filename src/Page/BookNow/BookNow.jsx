@@ -5,6 +5,7 @@ import { TbCurrencyTaka } from "react-icons/tb";
 import { AuthContext } from "../../Firebase/AuthProvider";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const BookNow = () => {
   const data = useLoaderData([]);
@@ -71,7 +72,7 @@ const handleBooked=(e)=>{
         confirmButtonText: "Yes, Confirm!"
       }).then((result) => {
         if (result.isConfirmed) {
-            axios.post('http://localhost:5000/booked', info)
+            axios.post('https://mubins-server-project.vercel.app/booked', info)
         .then(res=> {
             console.log(res.data)
             navigate('/bookedservice')
@@ -101,6 +102,9 @@ let bookedUserName = email.charAt(0).toUpperCase();
 
   return (
     <div>
+      <Helmet>
+      <title>{name}-booked now || MNS-service</title>
+      </Helmet>
       <div className=" hero bg-base-200 min-h-[700px]">
         <div className="md:grid grid-cols-2 card bg-base-100 lg:w-10/12 h-[1210px] md:h-[620px] shrink-0 p-6 shadow-2xl">
           <div className="md:pl-4 md:pr-9 md:border-r-4 border-green-600 ">

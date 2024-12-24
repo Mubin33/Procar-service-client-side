@@ -2,6 +2,7 @@ import React from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 
 const UpdateService = () => {
@@ -22,7 +23,7 @@ const UpdateService = () => {
     let uDescription = form.description.value || data?.description 
 
     let updateInfo ={uPhoto, uName, uCity, uCountry, uPrice, uDescription}
-    axios.put(`http://localhost:5000/service/${data?._id}`, updateInfo)
+    axios.put(`https://mubins-server-project.vercel.app/service/${data?._id}`, updateInfo)
     .then(res => {
                Swal.fire({
                  icon: "success",
@@ -44,6 +45,9 @@ const UpdateService = () => {
   };
   return (
     <div>
+      <Helmet>
+      <title>{data?.name}-info update || MNS-service</title>
+      </Helmet>
       <div className="hero bg-base-200 min-h-[650px]">
         <div className="hero-content flex-col ">
           <div className="text-center ">

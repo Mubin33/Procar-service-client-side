@@ -20,7 +20,7 @@ const Navbar = () => {
       text: "You won't be able to revert this!",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
+      confirmButtonColor: "#3085d6", 
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, Logout!",
     }).then((result) => {
@@ -190,9 +190,7 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
           {userInformation ? (
-            <p onClick={handleLogout} className="btn hidden md:flex">
-              Logout
-            </p>
+            ""
           ) : (
             <div className="flex space-x-2">
               <Link to="/login">

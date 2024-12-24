@@ -48,10 +48,10 @@ import axios from "axios";
         setUserInformation(user);
         if(user?.email){
           const nowUser={email:user.email}
-          axios.post('http://localhost:5000/jwt', nowUser,{withCredentials:true})
+          axios.post('https://mubins-server-project.vercel.app/jwt', nowUser,{withCredentials:true})
           setLoading(false);
         }else{
-          axios.post('http://localhost:5000/logout', {},{withCredentials:true})
+          axios.post('https://mubins-server-project.vercel.app/logout', {},{withCredentials:true})
           .then(res=> {
               console.log("user logout and kill the token",res.data)
               setLoading(false);

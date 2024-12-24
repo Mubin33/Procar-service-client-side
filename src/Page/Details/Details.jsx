@@ -3,6 +3,7 @@ import { useLoaderData } from 'react-router-dom';
 import { FaLocationDot } from "react-icons/fa6";
 import { TbCurrencyTaka } from "react-icons/tb";
 import { Link } from "react-router-dom";
+import { Helmet } from 'react-helmet-async';
 
 
 
@@ -22,6 +23,9 @@ const Details = () => {
       } = data
     return (
         <div>
+          <Helmet>
+          <title>{name}-details  || MNS-service</title>
+          </Helmet>
              <div className="hero bg-base-200 min-h-[700px]">  
     <div className="card bg-base-100 lg:w-8/12  h-[650px] shrink-0 p-6 shadow-2xl"> 
       <div className="md:px-10 ">

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react"; 
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-// import { Helmet } from "react-helmet-async";
+import { Helmet } from "react-helmet-async";
 import { FaRegEye } from "react-icons/fa6";
 import { FaRegEyeSlash } from "react-icons/fa6";
 import { AuthContext } from "../../Firebase/AuthProvider";
@@ -74,9 +74,9 @@ const Login = () => {
     
   return (
     <div>
-      {/* <Helmet>
-      <title>Login || FLIX</title>
-      </Helmet> */}
+      <Helmet>
+      <title>Login || MNS-service</title>
+      </Helmet>
       <div className="hero bg-base-200 min-h-screen">
         <div className="hero-content flex-col  ">
           <div className="text-center ">

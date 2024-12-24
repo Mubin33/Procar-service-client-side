@@ -5,6 +5,7 @@ import ServiceCard from './ServiceCard';
 import { useQuery } from '@tanstack/react-query';
 import Loading from './../../Components/Loading/Loading';
 import Title from '../../Components/Title/Title';
+import { Helmet } from 'react-helmet-async';
 
 const Services = () => {
     const [search, setSearch] = useState('');  
@@ -19,8 +20,8 @@ const Services = () => {
         queryKey: ['allService', search], // Using search in the query key to refetch data when search changes
         queryFn: async () => {
             const res = search
-                ? await axios.get(`http://localhost:5000/service2?searchParams=${search}`)
-                : await axios.get('http://localhost:5000/service2');
+                ? await axios.get(`https://mubins-server-project.vercel.app/service2?searchParams=${search}`)
+                : await axios.get('https://mubins-server-project.vercel.app/service2');
             return res.data;
         },
     });
@@ -35,6 +36,9 @@ const Services = () => {
 
     return (
         <>
+        <Helmet>
+        <title>All services || MNS-service</title>
+        </Helmet>
              <Title title={'Services'} subtitle={'We aim to provide you with the tools and strategies needed to excel in today’s digital landscape. From cutting-edge design to seamless user experiences, our services are crafted to suit your unique goals. Let us help you transform your ideas into reality and guide you toward online success.'}/>
             <div className="flex justify-end px-20 my-5">
                 <div className="flex items-center">

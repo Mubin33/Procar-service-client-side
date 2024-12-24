@@ -6,6 +6,7 @@ import ServiceCard from '../Services/ServiceCard';
 import { AuthContext } from '../../Firebase/AuthProvider';
 import UseAxiosSecure from '../../Firebase/UseAxiosSecure';
 import Title from '../../Components/Title/Title';
+import { Helmet } from 'react-helmet-async';
 
 const BookedRequest = () => {
     const axiosSecure = UseAxiosSecure()
@@ -13,7 +14,7 @@ const BookedRequest = () => {
     const { data: response, isLoading, isError, error } = useQuery({
         queryKey: ['allService'],
         queryFn: async () => {
-            const res = await axiosSecure.get(`http://localhost:5000/booked?email=${userInformation?.email}&type=hr`,{
+            const res = await axiosSecure.get(`https://mubins-server-project.vercel.app/booked?email=${userInformation?.email}&type=hr`,{
                 withCredentials:true
             });
             return res.data; // Extract data here
@@ -32,6 +33,9 @@ const BookedRequest = () => {
     console.log(response)
     return (
         <>
+        <Helmet>
+        <title>Booked request || MNS-service</title>
+        </Helmet>
         <Title title={'Booked request'} subtitle={'Your booked requests are organized and accessible in one convenient place. With real-time updates and clear communication, you can stay informed about the progress of your requests at every stage. Whether it’s scheduling, status updates, or modifications, we’ve designed this platform to keep you in control and ensure a seamless experience.'}/>
         <div className='lg:grid grid-cols-2 gap-x-16 px-10'>
             {

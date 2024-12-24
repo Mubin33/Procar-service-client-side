@@ -8,6 +8,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 import Title from '../../Components/Title/Title';
 import UseAxiosSecure from '../../Firebase/UseAxiosSecure';
+import { Helmet } from 'react-helmet-async';
 
 const ManageService = () => {
     let {userInformation} = useContext(AuthContext) 
@@ -18,7 +19,7 @@ const ManageService = () => {
     const { data: postedService, isLoading, isError, error } = useQuery({
       queryKey: ['allService'],
       queryFn: async () => {
-          const res = await axiosSecure.get(`http://localhost:5000/service?email=${userInformation?.email}`, {withCredentials:true});
+          const res = await axiosSecure.get(`https://mubins-server-project.vercel.app/service?email=${userInformation?.email}`, {withCredentials:true});
           return res.data;  
       }
   });
@@ -34,7 +35,7 @@ const ManageService = () => {
 
 
     // useEffect(()=>{
-    //     axios.get(`http://localhost:5000/service?email=${userInformation?.email}` )
+    //     axios.get(`https://mubins-server-project.vercel.app/service?email=${userInformation?.email}` )
     //     .then(res =>{
     //         setPostedService(res.data)
     //     })
@@ -56,7 +57,7 @@ const ManageService = () => {
           confirmButtonText: "Yes, Confirm!"
         }).then((result) => {
           if (result.isConfirmed) {
-              axios.delete(`http://localhost:5000/service/${id}`)
+              axios.delete(`https://mubins-server-project.vercel.app/service/${id}`)
           .then(res=> {
             navigate('/')
           })
@@ -80,6 +81,9 @@ const ManageService = () => {
 
     return (
         <>
+        <Helmet>
+        <title>Manage service || MNS-service</title>
+        </Helmet>
         <Title title={'Manage Services'} subtitle={'Streamline your workflow and enhance productivity with our comprehensive management services. We provide tailored solutions to help you oversee projects, monitor performance, and ensure that every aspect of your business runs smoothly. From handling day-to-day tasks to strategic planning, our expertise allows you to focus on growth while we take care of the details.'}/>
                 <div className='my-20 px-5  md:px-16'>
             {

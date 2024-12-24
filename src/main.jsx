@@ -23,6 +23,7 @@ import {
 import BookedServices from './Page/BookedServices/BookedServices.jsx';
 import BookedRequest from './Page/BookedRequest/BookedRequest.jsx';
 import UpdateService from './Page/UpdateService/UpdateService.jsx';
+import {  HelmetProvider } from 'react-helmet-async';
 
 
 
@@ -69,29 +70,31 @@ const router = createBrowserRouter([
       {
         path:'/details/:id',
         element: <PrivetRoute><Details/> </PrivetRoute>,
-        loader:({params}) => fetch(`http://localhost:5000/service/${params.id}`)
+        loader:({params}) => fetch(`https://mubins-server-project.vercel.app/service/${params.id}`)
       },
       {
         path:'/booknow/:id',
         element: <PrivetRoute><BookNow/> </PrivetRoute>,
-        loader:({params}) => fetch(`http://localhost:5000/service/${params.id}`)
+        loader:({params}) => fetch(`https://mubins-server-project.vercel.app/service/${params.id}`)
       },
       {
         path: "/update/:id",
         element:<PrivetRoute> <UpdateService /> </PrivetRoute>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/service/${params.id}`),
+          fetch(`https://mubins-server-project.vercel.app/service/${params.id}`),
       },
     ]
   },
 ]);
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode> 
+  <StrictMode>
     <QueryClientProvider client={queryClient}>
+    <HelmetProvider> 
     <AuthProvider>
     <RouterProvider router={router} /> 
      </AuthProvider>
+    </HelmetProvider>
     </QueryClientProvider>
   </StrictMode>,
 )

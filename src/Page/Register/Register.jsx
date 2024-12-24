@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react"; 
 import { Link, useNavigate } from "react-router-dom";
-// import { Helmet } from "react-helmet-async";
+import { Helmet } from "react-helmet-async";
 import { FaRegEye } from "react-icons/fa6";
 import { FaRegEyeSlash } from "react-icons/fa6";
 import Swal from "sweetalert2";
@@ -69,9 +69,9 @@ const Register = () => {
 
   return (
     <div>
-      {/* <Helmet>
-        <title>Register || FLIX</title>
-      </Helmet> */}
+      <Helmet>
+        <title>Register || MNS-service</title>
+      </Helmet>
       <div className="hero bg-base-200 min-h-screen">
         <div className="hero-content flex-col  ">
           <div className="text-center ">

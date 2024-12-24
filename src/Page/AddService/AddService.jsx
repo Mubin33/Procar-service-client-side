@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../Firebase/AuthProvider';
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import { Helmet } from 'react-helmet-async';
 
 const AddService = () => {
     const {userInformation} = useContext(AuthContext) 
@@ -26,7 +27,7 @@ const AddService = () => {
 
          let info = {photo, bid, name, city, country, price, description, hr_email, hr_name, hr_photo}
  
-         axios.post('http://localhost:5000/service', info)
+         axios.post('https://mubins-server-project.vercel.app/service', info)
          .then(res => {
            Swal.fire({
              icon: "success",
@@ -75,6 +76,9 @@ const AddService = () => {
 
     return (
         <div>
+          <Helmet>
+          <title>Add service || MNS-service</title>
+          </Helmet>
             <div className="hero bg-base-200 min-h-[650px]">
   <div className="hero-content flex-col ">
     <div className="text-center ">
