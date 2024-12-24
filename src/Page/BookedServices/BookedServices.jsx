@@ -5,6 +5,7 @@ import Loading from '../../Components/Loading/Loading';
 import ServiceCard from '../Services/ServiceCard';
 import { AuthContext } from '../../Firebase/AuthProvider';
 import UseAxiosSecure from '../../Firebase/UseAxiosSecure';
+import Title from '../../Components/Title/Title';
 
 const BookedServices = () => {
     const axiosSecure = UseAxiosSecure()
@@ -30,11 +31,14 @@ const BookedServices = () => {
 
     console.log(response)
     return (
+        <>
+        <Title title={'You Booked'} subtitle={'We understand the importance of your time and trust. Every service you book is meticulously managed to ensure a smooth and hassle-free experience. From confirmation to completion, our team works diligently to provide timely updates, excellent service quality, and unmatched satisfaction. Your journey with us begins here, and we are committed to exceeding your expectations every step of the way.'}/>
         <div className='lg:grid grid-cols-2 gap-x-16 px-10'>
             {
                 response?.map(item => <ServiceCard key={item._id} service={item}/>)
             }
         </div>
+            </>
     );
 };
 

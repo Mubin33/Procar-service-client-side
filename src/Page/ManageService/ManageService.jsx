@@ -6,16 +6,19 @@ import Swal from 'sweetalert2';
 import Loading from '../../Components/Loading/Loading';
 import { useQuery } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
+import Title from '../../Components/Title/Title';
+import UseAxiosSecure from '../../Firebase/UseAxiosSecure';
 
 const ManageService = () => {
     let {userInformation} = useContext(AuthContext) 
   const navigate = useNavigate()
+  const axiosSecure = UseAxiosSecure()
 
 
     const { data: postedService, isLoading, isError, error } = useQuery({
       queryKey: ['allService'],
       queryFn: async () => {
-          const res = await axios.get(`http://localhost:5000/service?email=${userInformation?.email}`);
+          const res = await axiosSecure.get(`http://localhost:5000/service?email=${userInformation?.email}`, {withCredentials:true});
           return res.data;  
       }
   });
@@ -77,8 +80,8 @@ const ManageService = () => {
 
     return (
         <>
-        <h1 className='text-3xl mt-10 underline font-bold text-center'>Manage Services</h1>
-        <div className='my-20 px-5  md:px-16'>
+        <Title title={'Manage Services'} subtitle={'Streamline your workflow and enhance productivity with our comprehensive management services. We provide tailored solutions to help you oversee projects, monitor performance, and ensure that every aspect of your business runs smoothly. From handling day-to-day tasks to strategic planning, our expertise allows you to focus on growth while we take care of the details.'}/>
+                <div className='my-20 px-5  md:px-16'>
             {
                 postedService?.map(item=> <ServiceCard key={item._id} handleDelete={handleDelete} service={item}/>)
             }

@@ -4,6 +4,7 @@ import debounce from 'lodash.debounce';
 import ServiceCard from './ServiceCard';
 import { useQuery } from '@tanstack/react-query';
 import Loading from './../../Components/Loading/Loading';
+import Title from '../../Components/Title/Title';
 
 const Services = () => {
     const [search, setSearch] = useState('');  
@@ -18,8 +19,8 @@ const Services = () => {
         queryKey: ['allService', search], // Using search in the query key to refetch data when search changes
         queryFn: async () => {
             const res = search
-                ? await axios.get(`http://localhost:5000/service?searchParams=${search}`)
-                : await axios.get('http://localhost:5000/service');
+                ? await axios.get(`http://localhost:5000/service2?searchParams=${search}`)
+                : await axios.get('http://localhost:5000/service2');
             return res.data;
         },
     });
@@ -34,7 +35,7 @@ const Services = () => {
 
     return (
         <>
-            <h1 className='text-3xl mt-10 underline font-bold text-center'>All Services</h1>
+             <Title title={'Services'} subtitle={'We aim to provide you with the tools and strategies needed to excel in today’s digital landscape. From cutting-edge design to seamless user experiences, our services are crafted to suit your unique goals. Let us help you transform your ideas into reality and guide you toward online success.'}/>
             <div className="flex justify-end px-20 my-5">
                 <div className="flex items-center">
                     <input
