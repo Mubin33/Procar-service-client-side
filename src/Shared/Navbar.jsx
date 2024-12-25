@@ -78,13 +78,13 @@ const Navbar = () => {
         <div
           tabIndex={0}
           role="button"
-          className="py-3 px-4 flex items-center gap-2 font-semibold rounded-lg text-green-600 "
+          className="py-3 px-4 flex items-center gap-1 font-semibold rounded-lg text-green-600 "
           onClick={toggleDropdown}
           onKeyPress={(e) => {
             if (e.key === "Enter") toggleDropdown();
           }}
         >
-          Dashboard <FaAngleDoubleDown />
+          Dashboard<FaAngleDoubleDown />
         </div>
         {isOpen && (
           <ul
@@ -190,7 +190,9 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
           {userInformation ? (
-            ""
+            <p onClick={handleLogout} className="btn hidden md:flex">
+            Logout
+          </p>
           ) : (
             <div className="flex space-x-2">
               <Link to="/login">

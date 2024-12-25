@@ -3,12 +3,14 @@ import { AuthContext } from '../../Firebase/AuthProvider';
 import Swal from 'sweetalert2';
 import axios from 'axios';
 import { Helmet } from 'react-helmet-async';
+import { useNavigate } from 'react-router-dom';
 
 const AddService = () => {
     const {userInformation} = useContext(AuthContext) 
     const [bid, setBid] = useState(0)
     const [wrongDescription, setWrongDescription] = useState(false) 
     const [wrongPhoto, setWrongPhoto] = useState(false) 
+    let navigate = useNavigate()
 
     let hr_email = userInformation?.email
     let hr_name = userInformation?.displayName
@@ -34,6 +36,7 @@ const AddService = () => {
              title: "WOW.....",
              text: "Service added successfully!", 
            });
+           navigate('/services')
            console.log(res.data); // Logs the response from the server
          })
          .catch(error => {

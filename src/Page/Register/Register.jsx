@@ -136,7 +136,7 @@ const Register = () => {
                     <FaRegEye size={20} />
                   )}
                 </div>
-                {passCondition && <span className="text-xs text-red-600 mt-2">Minimum 6 character with one uppercase and lowercase added</span>}
+                 <span className={`text-xs ${passCondition ? "text-red-600" : ""}  mt-2`}>Minimum 6 character with one uppercase and lowercase added</span>
               </div>
               <div className="form-control mt-6">
                 <button className="btn bg-green-600 text-white">SignUp</button>

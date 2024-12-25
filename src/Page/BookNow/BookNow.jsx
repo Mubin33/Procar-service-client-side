@@ -110,7 +110,7 @@ let bookedUserName = email.charAt(0).toUpperCase();
           <div className="md:pl-4 md:pr-9 md:border-r-4 border-green-600 ">
             <img className="h-80 rounded-md w-full" src={photo} alt="" />
             <h1 className="text-3xl my-4 text-center font-bold">{name}</h1>
-            <p className=" font-semibold text-center   my-2">{description}</p>
+            <p className=" font-thin text-center   my-2">{description}</p>
             <p className="text-xs mt-2 flex items-center gap-1">
               <FaLocationDot /> {city}, {country}
             </p>

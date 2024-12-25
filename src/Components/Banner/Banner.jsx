@@ -10,7 +10,7 @@ const Banner = () => {
           <h1 className="text-5xl font-bold">
             Latest{" "}
             <motion.span
-              animate={{ color: ["#ecff33", "#33ffe3", "#ff6133"] }}
+              animate={{ color: ["#00b42d", "#a30029", "#009ac0"] }}
               transition={{ duration: 1.5, repeat: Infinity }}
             >
               Service
@@ -30,13 +30,13 @@ const Banner = () => {
         </div>
         <div className="flex-1 ">
           <motion.img
-            src="../../../public/image/m9.jpg"
+            src="./image/m9.jpg"
             animate={{ y: [50, 95, 50] }}
             transition={{ duration: 10, repeat: Infinity }}
             className="max-w-sm w-64 rounded-t-[40px] rounded-br-[40px] border-l-4 border-b-4 border-blue-400 shadow-2xl"
           />
           <motion.img
-            src="../../../public/image/m8.jpg"
+            src="./image/m8.jpg"
             animate={{ x: [100, 145, 100] }}
             transition={{ duration: 10, delay: 5, repeat: Infinity }}
             className="max-w-sm w-64 rounded-t-[40px] rounded-br-[40px] border-l-4 border-b-4 border-blue-400 shadow-2xl"

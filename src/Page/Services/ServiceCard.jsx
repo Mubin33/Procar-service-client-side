@@ -35,7 +35,7 @@ const ServiceCard = ({ service, handleDelete }) => {
   };
 
   return (
-    <div className="md:flex md:p-5 rounded-2xl bg-base-200 p-2  mt-14 items-center shadow-xl shadow-blue-200">
+    <div className={`md:flex md:p-5 rounded-2xl ${location.pathname !== "/" ? "bg-base-200": "bg-base-100" }  p-2  mt-14 items-center shadow-xl shadow-blue-200`}>
       <div className="h-48 w-full md:w-56 mr-6">
         <img className="h-full rounded-md min-w-56" src={photo} alt="" />
       </div>

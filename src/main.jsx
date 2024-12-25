@@ -24,6 +24,7 @@ import BookedServices from './Page/BookedServices/BookedServices.jsx';
 import BookedRequest from './Page/BookedRequest/BookedRequest.jsx';
 import UpdateService from './Page/UpdateService/UpdateService.jsx';
 import {  HelmetProvider } from 'react-helmet-async';
+import Error from './Page/Error/Error.jsx';
 
 
 
@@ -34,6 +35,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element:<App/>,
+    errorElement:<Error/>,
     children:[
       {
         path:'/',
