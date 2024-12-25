@@ -33,13 +33,13 @@ const Banner = () => {
             src="./image/m9.jpg"
             animate={{ y: [50, 95, 50] }}
             transition={{ duration: 10, repeat: Infinity }}
-            className="max-w-sm w-64 h-48 rounded-t-[40px] rounded-br-[40px] border-l-4 border-b-4 border-blue-400 shadow-2xl"
+            className="max-w-sm w-80 h-48 rounded-t-[40px] rounded-br-[40px] border-l-4 border-b-4 border-blue-400 shadow-2xl"
           />
           <motion.img
             src="./image/m8.jpg"
             animate={{ x: [100, 145, 100] }}
             transition={{ duration: 10, delay: 5, repeat: Infinity }}
-            className="max-w-sm w-64 h-48 rounded-t-[40px] rounded-br-[40px] border-l-4 border-b-4 border-blue-400 shadow-2xl"
+            className="max-w-sm w-80 h-48 rounded-t-[40px] rounded-br-[40px] border-l-4 border-b-4 border-blue-400 shadow-2xl"
           />
         </div>
       </div>

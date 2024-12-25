@@ -15,7 +15,7 @@ const Slider = () => {
   return (
     <div className="md:flex lg:space-x-28   lg:px-24">
       <div className="lg:px-0 px-5">
-        <h1 className="md:text-7xl text-4xl text-center md:text-start font-semibold lg:mt-40">Recent Movie Series release by <br/>"<span className="text-red-600">MNS-service</span>"</h1>
+        <h1 className="md:text-7xl text-4xl text-center md:text-start font-semibold lg:mt-40">Your Solution, One Stop Here <br/>"<span className="text-red-600">MNS-service</span>"</h1>
         <p className="text-xs font-semibold my-5">Step into the world of movies and experience storytelling like never before. From action-packed blockbusters to heartfelt indie gems</p>
       </div>
     <div className="h-[650px] w-full  md:w-[450px]">
