@@ -6,6 +6,8 @@ import { useQuery } from "@tanstack/react-query";
 import Loading from "./../../Components/Loading/Loading";
 import Title from "../../Components/Title/Title";
 import { Helmet } from "react-helmet-async";
+import Lottie from "lottie-react";
+import lottieVai from "../../assets/Animation - 1735114433916.json";
 
 const Services = () => {
   const [search, setSearch] = useState("");
@@ -65,11 +67,24 @@ const Services = () => {
           />
         </div>
       </div>
-      <div className="my-20 px-5 md:px-16">
-        {response?.map((item) => (
-          <ServiceCard key={item._id} service={item} />
-        ))}
-      </div>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <>
+          {
+            response.length === 0 ? <div className="flex justify-center items-center ">
+            <div style={{ width: "400px", height: "400px" }}>
+              <Lottie animationData={lottieVai}></Lottie>
+            </div>
+            <h1 className="text-[4rem] font-bold">Empty </h1>
+          </div> : <div className="my-20 px-5 md:px-16">
+          {response?.map((item) => (
+            <ServiceCard key={item._id} service={item} />
+          ))}
+        </div>
+          }
+        </>
+      )}
     </>
   );
 };

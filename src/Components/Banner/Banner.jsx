@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
-    <div className="hero bg-base-200 min-h-96">
-      <div className="hero-content   items-start flex-col lg:flex-row-reverse">
+    <div className="hero bg-base-200 pb-10 min-h-96">
+      <div className="hero-content   items-center flex-col lg:flex-row-reverse">
         <div className="flex-1">
           <h1 className="text-5xl font-bold">
             Latest{" "}
@@ -33,13 +33,13 @@ const Banner = () => {
             src="./image/m9.jpg"
             animate={{ y: [50, 95, 50] }}
             transition={{ duration: 10, repeat: Infinity }}
-            className="max-w-sm w-64 rounded-t-[40px] rounded-br-[40px] border-l-4 border-b-4 border-blue-400 shadow-2xl"
+            className="max-w-sm w-64 h-48 rounded-t-[40px] rounded-br-[40px] border-l-4 border-b-4 border-blue-400 shadow-2xl"
           />
           <motion.img
             src="./image/m8.jpg"
             animate={{ x: [100, 145, 100] }}
             transition={{ duration: 10, delay: 5, repeat: Infinity }}
-            className="max-w-sm w-64 rounded-t-[40px] rounded-br-[40px] border-l-4 border-b-4 border-blue-400 shadow-2xl"
+            className="max-w-sm w-64 h-48 rounded-t-[40px] rounded-br-[40px] border-l-4 border-b-4 border-blue-400 shadow-2xl"
           />
         </div>
       </div>
