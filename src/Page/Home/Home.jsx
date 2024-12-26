@@ -23,7 +23,7 @@ const Home = () => {
   return (
     <div>
       <Helmet>
-      <title>Add Movie || MNS-service</title>
+      <title>Home || MNS-service</title>
       </Helmet>
       <div className="flex justify-end py-2 items-center pr-5">
         {/*  */}

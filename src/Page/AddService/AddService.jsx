@@ -8,7 +8,6 @@ import { useNavigate } from 'react-router-dom';
 const AddService = () => {
     const {userInformation} = useContext(AuthContext) 
     const [bid, setBid] = useState(0)
-    const [wrongDescription, setWrongDescription] = useState(false) 
     const [wrongPhoto, setWrongPhoto] = useState(false) 
     let navigate = useNavigate()
 
@@ -63,17 +62,7 @@ const AddService = () => {
             setWrongPhoto(false)
           }
 
-        if (!description || description.length < 60) {
-            setWrongDescription(true)
-            Swal.fire({
-              icon: "error",
-              title: "Oops...",
-              text: "description must have at least 60 characters.", 
-            });   
-            return;
-          }else{
-            setWrongDescription(false)
-          } 
+        
     }
 
 
@@ -131,7 +120,7 @@ const AddService = () => {
         </div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Description{wrongDescription && <span className="text-xs text-red-600">*Minimum 60 characters*</span>}</span>
+            <span className="label-text">Description</span>
           </label>
           <input type="text" placeholder="description"name='description' className="input input-bordered"  />
         </div>

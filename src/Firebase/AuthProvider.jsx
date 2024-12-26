@@ -53,7 +53,7 @@ import axios from "axios";
         }else{
           axios.post('https://mubins-server-project.vercel.app/logout', {},{withCredentials:true})
           .then(res=> {
-              console.log("user logout and kill the token",res.data)
+               
               setLoading(false);
           })
       }
