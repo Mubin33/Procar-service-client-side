@@ -4,6 +4,8 @@ import MainRun from "../../Components/RuningCard/MainRun";
 import { Helmet } from "react-helmet-async";
 import TopService from './../../Components/TopService/TopService';
 import Banner from "../../Components/Banner/Banner";
+import OfferSection from "../../Components/OfferSection/OfferSection";
+import LandingPageSections from "../../Components/LandingPageSections/LandingPageSections";
 
 const Home = () => {
   const [theme, setTheme] = useState(
@@ -23,7 +25,7 @@ const Home = () => {
   return (
     <div>
       <Helmet>
-      <title>Home || MNS-service</title>
+      <title>Home || Procar</title>
       </Helmet>
       <div className="flex justify-end py-2 items-center pr-5">
         {/*  */}
@@ -58,7 +60,15 @@ const Home = () => {
         </h1>
       </div>
       <Slider/>
+      <div className="mt-20">
+        <OfferSection/>
+      </div>
       <TopService/>
+
+      
+      <div>
+        <LandingPageSections/>
+      </div>
       <div className="mt-28">
         <Banner/>
       </div>

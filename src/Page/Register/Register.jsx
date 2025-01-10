@@ -70,7 +70,7 @@ const Register = () => {
   return (
     <div>
       <Helmet>
-        <title>Register || MNS-service</title>
+        <title>Register || Procar</title>
       </Helmet>
       <div className="hero bg-base-200 min-h-screen">
         <div className="hero-content flex-col  ">

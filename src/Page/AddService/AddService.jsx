@@ -69,7 +69,7 @@ const AddService = () => {
     return (
         <div>
           <Helmet>
-          <title>Add service || MNS-service</title>
+          <title>Add service || Procar</title>
           </Helmet>
             <div className="hero bg-base-200 min-h-[650px]">
   <div className="hero-content flex-col ">

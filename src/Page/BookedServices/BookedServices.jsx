@@ -43,7 +43,7 @@ const BookedServices = () => {
   return (
     <>
       <Helmet>
-        <title>Booked service || MNS-service</title>
+        <title>Booked service || Procar</title>
       </Helmet>
       <Title
         title={"You Booked"}

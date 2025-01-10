@@ -47,7 +47,7 @@ const Services = () => {
   return (
     <>
       <Helmet>
-        <title>All services || MNS-service</title>
+        <title>All services || Procar</title>
       </Helmet>
       <Title
         title={"Services"}

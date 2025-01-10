@@ -83,7 +83,7 @@ const ManageService = () => {
   return (
     <>
       <Helmet>
-        <title>Manage service || MNS-service</title>
+        <title>Manage service || Procar</title>
       </Helmet>
       <Title
         title={"Manage Services"}

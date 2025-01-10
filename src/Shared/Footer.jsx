@@ -10,7 +10,7 @@ const Footer = () => {
         <nav>
           <Link to="/">
             <h1 className="text-black my-3 text-xl md:text-3xl font-bold md:font-semibold">
-              🚀MNS-service
+              🚀Procar
             </h1>
           </Link>
           <h6 className="footer-title">Services</h6>

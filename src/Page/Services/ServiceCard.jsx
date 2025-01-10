@@ -99,7 +99,7 @@ const ServiceCard = ({ service, handleDelete }) => {
         ) : (
           <p className="text-sm   my-1">
             {description.length > 100
-              ? `${description.slice(0, 100)}...`
+              ? `${description.slice(0, 50)}...`
               : description}
           </p>
         )}

@@ -103,7 +103,7 @@ let bookedUserName = email.charAt(0).toUpperCase();
   return (
     <div>
       <Helmet>
-      <title>{name}-booked now || MNS-service</title>
+      <title>{name}-booked now || Procar</title>
       </Helmet>
       <div className=" hero bg-base-200 min-h-[700px]">
         <div className="md:grid grid-cols-2 card bg-base-100 lg:w-10/12 h-[1210px] md:h-[620px] shrink-0 p-6 shadow-2xl">

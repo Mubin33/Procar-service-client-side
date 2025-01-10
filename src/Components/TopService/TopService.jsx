@@ -26,7 +26,7 @@ const TopService = () => {
 
     const sortedServices = response.sort((a, b) => b.bid - a.bid).slice(0, 6)
     return (
-        <div className='mt-28 bg-base-200 py-10'>
+        <div className='mt-10 bg-base-200 py-10'>
             <Title title={'Popular Services'}/>
             <div className="my-1 px-5 lg:grid grid-cols-2 lg:gap-5 md:px-5">
                 {sortedServices?.map(item => (

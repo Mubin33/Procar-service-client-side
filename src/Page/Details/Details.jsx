@@ -24,7 +24,7 @@ const Details = () => {
     return (
         <div>
           <Helmet>
-          <title>{name}-details  || MNS-service</title>
+          <title>{name}-details  || Procar</title>
           </Helmet>
              <div className="hero bg-base-200 min-h-[700px]">  
     <div className="card bg-base-100 lg:w-8/12  h-[650px] shrink-0 p-6 shadow-2xl"> 

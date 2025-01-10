@@ -182,7 +182,7 @@ const Navbar = () => {
             </ul>
           </div>
           <Link to="/">
-            <h1 className="btn btn-ghost text-xl">🚀MNS-service</h1>
+            <h1 className="btn btn-ghost text-xl">🚀Procar</h1>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">

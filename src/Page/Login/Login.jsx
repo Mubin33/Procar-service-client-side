@@ -75,7 +75,7 @@ const Login = () => {
   return (
     <div>
       <Helmet>
-      <title>Login || MNS-service</title>
+      <title>Login || Procar</title>
       </Helmet>
       <div className="hero bg-base-200 min-h-screen">
         <div className="hero-content flex-col  ">
