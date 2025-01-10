@@ -71,18 +71,20 @@ const Services = () => {
         <Loading />
       ) : (
         <>
-          {
-            response.length === 0 ? <div className="flex justify-center items-center ">
-            <div style={{ width: "400px", height: "400px" }}>
-              <Lottie animationData={lottieVai}></Lottie>
+          {response.length === 0 ? (
+            <div className="flex justify-center items-center ">
+              <div style={{ width: "400px", height: "400px" }}>
+                <Lottie animationData={lottieVai}></Lottie>
+              </div>
+              <h1 className="text-[4rem] font-bold">Empty </h1>
             </div>
-            <h1 className="text-[4rem] font-bold">Empty </h1>
-          </div> : <div className="my-20 px-5 md:px-16">
-          {response?.map((item) => (
-            <ServiceCard key={item._id} service={item} />
-          ))}
-        </div>
-          }
+          ) : (
+            <div className="mb-10 px-5 md:px-16">
+              {response?.map((item) => (
+                <ServiceCard key={item._id} service={item} />
+              ))}
+            </div>
+          )}
         </>
       )}
     </>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const OfferSection = () => {
   return (
@@ -11,9 +12,11 @@ const OfferSection = () => {
             Grab up to 50% off on your favorite products. Limited time only! Don't
             miss out on amazing deals that you won’t find anywhere else.
           </p>
+          <Link to='/services'>
           <button className="bg-yellow-500 text-gray-900 font-semibold py-3 px-6 rounded-lg hover:bg-yellow-400 transition-all duration-300">
             Shop Now
           </button>
+          </Link>
         </div>
 
         {/* Right side: Placeholder for image or graphic */}

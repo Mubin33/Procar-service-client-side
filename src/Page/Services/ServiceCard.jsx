@@ -26,16 +26,23 @@ const ServiceCard = ({ service, handleDelete }) => {
       return console.log("sorry");
     }
     try {
-      await axios.patch(`https://mubins-server-project.vercel.app/bid-status/${id}`, {
-        status: updateStatus,
-      });
+      await axios.patch(
+        `https://mubins-server-project.vercel.app/bid-status/${id}`,
+        {
+          status: updateStatus,
+        }
+      );
     } catch (error) {
       console.log(error);
     }
   };
 
   return (
-    <div className={`md:flex md:p-5 rounded-2xl ${location.pathname !== "/" ? "bg-base-200": "bg-base-100" }  p-2  mt-14 items-center shadow-xl shadow-blue-200`}>
+    <div
+      className={`md:flex md:p-3 rounded-2xl ${
+        location.pathname !== "/" ? "bg-base-200" : "bg-base-100"
+      }  p-2  mt-4 items-center shadow-xl shadow-blue-200`}
+    >
       <div className="h-48 w-full md:w-56 mr-6">
         <img className="h-full rounded-md min-w-56" src={photo} alt="" />
       </div>
@@ -97,7 +104,7 @@ const ServiceCard = ({ service, handleDelete }) => {
             </div>
           </>
         ) : (
-          <p className="text-sm   my-1">
+          <p className="text-xs   my-1">
             {description.length > 100
               ? `${description.slice(0, 50)}...`
               : description}
@@ -142,11 +149,15 @@ const ServiceCard = ({ service, handleDelete }) => {
         ) : (
           ""
         )}
-        {
-        location.pathname === "/" ? <div>
-          <p className="mt-1 text-xs text-red-500 ">Total booked: {service?.bid}</p>
-        </div> :""
-      }
+        {location.pathname === "/" ? (
+          <div>
+            <p className="mt-1 text-xs text-red-500 ">
+              Total booked: {service?.bid}
+            </p>
+          </div>
+        ) : (
+          ""
+        )}
       </div>
       {location.pathname === "/manageservice" ? (
         <div className="mt-5 md:mt-0 flex gap-3 md:space-x-4 pr-5">
@@ -166,7 +177,6 @@ const ServiceCard = ({ service, handleDelete }) => {
       ) : (
         ""
       )}
-      
     </div>
   );
 };

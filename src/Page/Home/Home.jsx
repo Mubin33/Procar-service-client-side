@@ -6,6 +6,7 @@ import TopService from './../../Components/TopService/TopService';
 import Banner from "../../Components/Banner/Banner";
 import OfferSection from "../../Components/OfferSection/OfferSection";
 import LandingPageSections from "../../Components/LandingPageSections/LandingPageSections";
+import QuestionAndAnswer from "../../Components/QuestionAndAnswer/QuestionAndAnswer";
 
 const Home = () => {
   const [theme, setTheme] = useState(
@@ -72,7 +73,12 @@ const Home = () => {
       <div className="mt-28">
         <Banner/>
       </div>
+
       <MainRun/>
+      
+      <div className="my-10">
+        <QuestionAndAnswer/>
+      </div>
     </div>
   );
 };
