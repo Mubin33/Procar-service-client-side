@@ -8,7 +8,7 @@ function App() {
 
   return (
     <div>
-      <div className=""> 
+      <div className="sticky border-b-2 border-green-100  z-10 top-0"> 
       <Navbar/> 
       </div>
       <div className=" container mx-auto">
