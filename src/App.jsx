@@ -8,15 +8,17 @@ function App() {
 
   return (
     <div>
-      <div className=" container mx-auto">
-      <div className="sticky z-10 top-0"> 
+      <div className=""> 
       <Navbar/> 
       </div>
+      <div className=" container mx-auto">
       <div className="min-h-[650px]">
         <Outlet />
       </div>
-      <Footer />
     </div>
+      <div className=' bg-base-300 w-full'>
+      <Footer />
+      </div>
     </div>
   )
 }

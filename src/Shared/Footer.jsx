@@ -5,8 +5,8 @@ import { FaFacebookSquare } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div>
-      <footer className="footer bg-base-300 text-base-content p-10">
+    <div  >
+      <footer className="footer  container mx-auto bg-base-300 text-base-content p-10">
         <nav>
           <Link to="/">
             <h1 className="text-black my-3 text-xl md:text-3xl font-bold md:font-semibold">
