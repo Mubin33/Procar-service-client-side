@@ -56,6 +56,34 @@ const Slider = () => {
           <img src="/image/s2.jpg" alt="slider image" />
           
         </SwiperSlide>
+        <SwiperSlide>
+          <img src="/image/s3.jpg" alt="slider image" />
+          
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="/image/s2.jpg" alt="slider image" />
+          
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="/image/s1.jpg" alt="slider image" />
+          
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="/image/s4.jpg" alt="slider image" />
+         
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="/image/s5.jpg" alt="slider image" />
+         
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="/image/s3.jpg" alt="slider image" />
+          
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="/image/s2.jpg" alt="slider image" />
+          
+        </SwiperSlide>
       </Swiper>
     </div>
     </div>

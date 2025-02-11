@@ -6,7 +6,7 @@ import { FaAngleDoubleDown } from "react-icons/fa";
 
 const Navbar = () => {
   let { userInformation, signoutUser } = useContext(AuthContext);
-  console.log(userInformation);
+  // console.log(userInformation);
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -105,7 +105,7 @@ const Navbar = () => {
                 Add Services
               </NavLink>
             </li>
-            <li>
+            {userInformation ? <><li>
               <NavLink
                 className={({ isActive, isPending }) =>
                   isPending
@@ -146,7 +146,8 @@ const Navbar = () => {
               >
                 Service-To-Do
               </NavLink>
-            </li>
+            </li></> :<></>}
+            
           </ul>
         )}
       </div>
