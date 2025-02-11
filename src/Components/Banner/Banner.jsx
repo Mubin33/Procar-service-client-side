@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Banner = () => {
   return (
     <div className="hero bg-base-200 pb-10 min-h-96">
-      <div className="hero-content   items-center flex-col lg:flex-row-reverse">
+      <div className="md:hero-content   items-center flex-col lg:flex-row-reverse">
         <div className="flex-1">
           <h1 className="text-5xl font-bold">
             Latest{" "}
